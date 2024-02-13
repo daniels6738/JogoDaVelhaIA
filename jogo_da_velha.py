@@ -45,9 +45,9 @@ def inputPlayerLetter():
 	letter = ''
 	while not(letter == 'X' or letter == 'O'):
 		print('Voce quer ser X ou O?')
-		letter = raw_input().upper()
+		letter = input().upper()
 		if(letter != 'X' and letter != 'O'):
-			print"Entre apenas com a letra X(xis) se voce quer ser X ou com a letra O(oh) se voce quer ser O!"
+			print("Entre apenas com a letra X(xis) se voce quer ser X ou com a letra O(oh) se voce quer ser O!")
 
 	#O primeiro elemento na lista eh o do jogador e o segundo do computador
 	if letter == 'X':
@@ -55,7 +55,7 @@ def inputPlayerLetter():
 	else:
 		return ['O','X']
 
-def whoGoesFirts():
+def whoGoesFirst():
 	#Escolhe aleatoriamente o jogador que jogara primeiro
 	if random.randint(0, 1) == 0:
 		return 'computador'
@@ -89,13 +89,13 @@ def getPlayerMove(board):
 	move = ''
 	while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
 		print('Qual eh o seu proximo movimento? (1-9)')
-		move = raw_input();
+		move = input()
 		if(move not in '1 2 3 4 5 6 7 8 9'):
-			print "MOVIMENTO INVALIDO! INSIRA UM NUMERO ENTRE 1 E 9!"
+			print("MOVIMENTO INVALIDO! INSIRA UM NUMERO ENTRE 1 E 9!")
 		
 		if(move in '1 2 3 4 5 6 7 8 9'):
 			if(not isSpaceFree(board, int(move))):
-				print "ESPACO INSDISPONIVEL! ESCOLHA OUTRO ESPACO ENTRE 1 E 9 O QUAL O NUMERO ESTA DISPONIVEL NO QUADRO!"
+				print("ESPACO INSDISPONIVEL! ESCOLHA OUTRO ESPACO ENTRE 1 E 9 O QUAL O NUMERO ESTA DISPONIVEL NO QUADRO!")
 
 	return int(move)
 
@@ -260,7 +260,7 @@ while jogar:
 	#Reseta o jogo
 	theBoard = [''] * 10
 	playerLetter, computerLetter = inputPlayerLetter()
-	turn = whoGoesFirts()
+	turn = whoGoesFirst()
 	print('O ' + turn +' joga primeiro,')
 	gameisPlaying = True
 
@@ -304,12 +304,12 @@ while jogar:
 
 	letterNew = ''
 	while not(letterNew == 'S' or letterNew == 'N'):
-		print"Voce quer jogar novamente? Digite S(para sim) ou N(para nao)"
-		letterNew = raw_input().upper()
+		print("Voce quer jogar novamente? Digite S(para sim) ou N(para nao)")
+		letterNew = input().upper()
 		if (letterNew != 'S' and letterNew != 'N'):
-			print"Entrada invalida! Digite S(para sim) ou N(para nao)!"
+			print("Entrada invalida! Digite S(para sim) ou N(para nao)!")
 		if(letterNew == 'N'):
-			print"Foi bom jogar com voce! Ate mais!"
+			print("Foi bom jogar com voce! Ate mais!")
 			jogar = False
 
 
